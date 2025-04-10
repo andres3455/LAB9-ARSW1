@@ -3,6 +3,10 @@
 
 ## Escalamiento en Azure con Maquinas Virtuales, Sacale Sets y Service Plans
 
+## Integrantes:
+* Santiago Guerra Penagos
+* Andrés Felipe Rodríguez
+
 ### Dependencias
 * Cree una cuenta gratuita dentro de Azure. Para hacerlo puede guiarse de esta [documentación](https://azure.microsoft.com/es-es/free/students/). Al hacerlo usted contará con $100 USD para gastar durante 12 meses.
 
@@ -57,6 +61,51 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
     * 1070000
     * 1080000
     * 1090000    
+
+### Desarrollo Lab
+
+* Prueba del endpoint Answer 8
+
+![Screenshot 2025-04-10 081634](https://github.com/user-attachments/assets/014a1b59-1ce8-43a0-9fba-cb9ce78ad0b8)
+
+* 1000000
+  ![Screenshot 2025-04-10 082204](https://github.com/user-attachments/assets/a6ad83da-35eb-4ccf-8dde-197fafcb3aa4)
+
+* 1010000
+  ![Screenshot 2025-04-10 082342](https://github.com/user-attachments/assets/80936f2a-debb-48a3-b9aa-b057081ef290)
+
+* 1020000
+
+  ![Screenshot 2025-04-10 082407](https://github.com/user-attachments/assets/44b0f991-dd71-4868-89f4-6807d9f1c710)
+* 1030000
+
+  ![Screenshot 2025-04-10 082430](https://github.com/user-attachments/assets/5e0c54fa-153d-40f9-b282-f8d9fbe05cf6)
+
+* 1040000
+
+  ![Screenshot 2025-04-10 082455](https://github.com/user-attachments/assets/20447fc7-77f7-4a85-8592-6d160bc9e053)
+
+* 1050000
+
+  ![Screenshot 2025-04-10 082614](https://github.com/user-attachments/assets/dc3f3056-8771-4f39-b31b-3e74588de018)
+
+* 1060000
+
+  ![Screenshot 2025-04-10 082642](https://github.com/user-attachments/assets/66583e66-4b47-4577-885c-87986119dfc6)
+
+* 1070000
+
+  ![Screenshot 2025-04-10 082744](https://github.com/user-attachments/assets/5b4686b9-1b50-4d61-b143-988eeae10bee)
+
+
+* 1080000
+
+  ![Screenshot 2025-04-10 082957](https://github.com/user-attachments/assets/f39afb59-388b-49c5-b9a8-c31617068130)
+
+* 1090000
+
+  ![Screenshot 2025-04-10 083355](https://github.com/user-attachments/assets/a5488084-7317-42b1-baf2-144a294b956c)
+
 
 8. Dírijase ahora a Azure y verifique el consumo de CPU para la VM. (Los resultados pueden tardar 5 minutos en aparecer).
 
