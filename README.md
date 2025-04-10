@@ -95,7 +95,7 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 * 1070000
 
-  ![Screenshot 2025-04-10 082744](https://github.com/user-attachments/assets/5b4686b9-1b50-4d61-b143-988eeae10bee)
+  ![Screenshot 2025-04-10 082937](https://github.com/user-attachments/assets/580ec980-2783-42de-8b43-413572c3fbbe)
 
 
 * 1080000
