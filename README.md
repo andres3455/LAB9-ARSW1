@@ -179,12 +179,17 @@ A pesar del incremento gradual en el tiempo de ejecución, el comportamiento gen
 5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
 * ![Screenshot 2025-04-10 085320](https://github.com/user-attachments/assets/d4ba6889-08bb-4dc2-a582-1b47599f0c7e)
   
-8. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
+6. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
     * Tiempos de ejecución de cada petición.
     * Si hubo fallos documentelos y explique.
-9. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
-10. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
-11. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
+7. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
+* Respuesta: El tamaño de B1LS es ideal para tareas ligeras y financieras, como servidores de desarrollo o pruebas básicas, ya que tiene recursos limitados (1 VCPU, 0.5 GIB Memoria) y bajo costo ($ 3.80 por mes). Por otro lado, el tamaño B2MS ofrece una mayor capacidad (2 VCPU, 8 Memoria GIB) a un precio más alto ($ 58.40/mes), que es más adecuado para pequeñas aplicaciones web, bases de datoso que requieren más flexibilidad y rendimiento.
+  
+8. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
+* Respuesta: El análisis previo muestra que el escalamienton vertical es una solución efectiva: aunque el tamaño de B1LS casi alcanzó su capacidad máxima en varias aplicaciones, usando el tamaño de B2MS, el uso de CPU permaneció por debajo del 50%, alcanzando un porcentaje del 40%. Sin embargo, también es importante optimizar el algoritmo utilizado para mejorar la eficiencia general de la aplicación.
+
+9. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
+* Respuesta: El precio aumenta considerablemente, y se le delegan mas ram para los procesos
 12. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
 13. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
 
