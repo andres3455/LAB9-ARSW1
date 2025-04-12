@@ -144,18 +144,33 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 **Preguntas**
 
 1. ¿Cuántos y cuáles recursos crea Azure junto con la VM?
+* Respuesta: Aproximadamente 7 Recursos
+  ![image](https://github.com/user-attachments/assets/4be9fb55-f7b2-4390-9772-cbdd7f608c52)
+
 2. ¿Brevemente describa para qué sirve cada recurso?
+* Respuesta:
+  * Maquina Virtual: Es el recurso principal: la máquina virtual en sí. Aquí se ejecuta el sistema operativo (Linux, en este caso) y es donde nos conectamos vía SSH.
+  * Dirección Ip publica: Es la IP pública que nos permite conectar remotamente desde un equipo local a la VM a través de Internet.
+  * Grupo de Seguridad: Es un firewall a nivel de red que controla el tráfico de entrada y salida. Define qué puertos están abiertos.
+  * Red Virtual:Es la red interna en la que se encuentra la máquina virtual. Sirve para conectar recursos entre sí dentro de Azure de forma segura
+  * Interfaz de red:Es la tarjeta de red virtual que conecta la VM con la red virtual (VNet) y con la IP pública, sin esta tarjeta, no se puede comunicarse con el exterior
+  * Clave SSH: Es la clave pública almacenada en Azure que se usó para crear la máquina virtual. La clave privada es la que descargamos (.pem).
+  * Disco: Es el disco duro virtual donde está instalado el sistema operativo y los archivos de tu VM.
+    
 3. ¿Al cerrar la conexión ssh con la VM, por qué se cae la aplicación que ejecutamos con el comando `npm FibonacciApp.js`? ¿Por qué debemos crear un *Inbound port rule* antes de acceder al servicio?
+* Cuando cerramos la terminal o nos desconectamos del SSH), todos los procesos ligados al acceso Node.js se terminan. Debemos crear una regla de entrada, por que por defecto azure bloquea las peticiones entrantes a menos que se lo permitamos
 4. Adjunte tabla de tiempos e interprete por qué la función tarda tando tiempo.
-5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
-6. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
+* ![Screenshot 2025-04-10 085320](https://github.com/user-attachments/assets/d4ba6889-08bb-4dc2-a582-1b47599f0c7e)
+
+6. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
+7. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
     * Tiempos de ejecución de cada petición.
     * Si hubo fallos documentelos y explique.
-7. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
-8. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
-9. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
-10. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
-11. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
+8. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
+9. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
+10. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
+11. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
+12. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
 
 ### Parte 2 - Escalabilidad horizontal
 
