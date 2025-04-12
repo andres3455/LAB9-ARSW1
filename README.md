@@ -33,8 +33,11 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
     `ssh scalability_lab@xxx.xxx.xxx.xxx`
 
-3. Instale node, para ello siga la sección *Installing Node.js and npm using NVM* que encontrará en este [enlace](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/).
-4. Para instalar la aplicación adjunta al Laboratorio, suba la carpeta `FibonacciApp` a un repositorio al cual tenga acceso y ejecute estos comandos dentro de la VM:
+* ![Captura de pantalla 2025-04-12 085654](https://github.com/user-attachments/assets/8a95e04c-7e2b-4d13-a82f-4f894c27f07c)
+
+
+4. Instale node, para ello siga la sección *Installing Node.js and npm using NVM* que encontrará en este [enlace](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/).
+5. Para instalar la aplicación adjunta al Laboratorio, suba la carpeta `FibonacciApp` a un repositorio al cual tenga acceso y ejecute estos comandos dentro de la VM:
 
     `git clone <your_repo>`
 
@@ -42,11 +45,11 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
     `npm install`
 
-5. Para ejecutar la aplicación puede usar el comando `npm FibinacciApp.js`, sin embargo una vez pierda la conexión ssh la aplicación dejará de funcionar. Para evitar ese compartamiento usaremos *forever*. Ejecute los siguientes comando dentro de la VM.
+6. Para ejecutar la aplicación puede usar el comando `npm FibinacciApp.js`, sin embargo una vez pierda la conexión ssh la aplicación dejará de funcionar. Para evitar ese compartamiento usaremos *forever*. Ejecute los siguientes comando dentro de la VM.
 
     ` node FibonacciApp.js`
 
-6. Antes de verificar si el endpoint funciona, en Azure vaya a la sección de *Networking* y cree una *Inbound port rule* tal como se muestra en la imágen. Para verificar que la aplicación funciona, use un browser y user el endpoint `http://xxx.xxx.xxx.xxx:3000/fibonacci/6`. La respuesta debe ser `The answer is 8`.
+7. Antes de verificar si el endpoint funciona, en Azure vaya a la sección de *Networking* y cree una *Inbound port rule* tal como se muestra en la imágen. Para verificar que la aplicación funciona, use un browser y user el endpoint `http://xxx.xxx.xxx.xxx:3000/fibonacci/6`. La respuesta debe ser `The answer is 8`.
 
 ![](images/part1/part1-vm-3000InboudRule.png)
 
@@ -135,6 +138,10 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 ![Imágen 3](images/part1/part1-vm-resize.png)
 
+* Cambio de tamaño
+  ![Captura de pantalla 2025-04-12 085756](https://github.com/userattachments/assets/6969005d-c7f9-4f41-ada9-8ed159233554)
+
+
 11. Una vez el cambio se vea reflejado, repita el paso 7, 8 y 9.
 12. Evalue el escenario de calidad asociado al requerimiento no funcional de escalabilidad y concluya si usando este modelo de escalabilidad logramos cumplirlo.
 * ![image](https://github.com/user-attachments/assets/0a3e5604-2521-4358-af26-d5f35966fdda)
@@ -206,21 +213,37 @@ Antes de continuar puede eliminar el grupo de recursos anterior para evitar gast
 
 ![](images/part2/part2-lb-create.png)
 
+* Creación del balanceador
+  ![Captura de pantalla 2025-04-12 102008](https://github.com/user-attachments/assets/b91c4d61-16a9-4724-b2e5-705949898d34)
+
+
 2. A continuación cree un *Backend Pool*, guiese con la siguiente imágen.
 
 ![](images/part2/part2-lb-bp-create.png)
 
+* Creación del backend pool
+  ![Captura de pantalla 2025-04-12 102428](https://github.com/user-attachments/assets/ac0c255a-1768-46f7-a793-008429033361)
+
+
 3. A continuación cree un *Health Probe*, guiese con la siguiente imágen.
 
-![](images/part2/part2-lb-hp-create.png)
+![](images/part2/part2-lb-hp-create.png)  
 
 4. A continuación cree un *Load Balancing Rule*, guiese con la siguiente imágen.
 
 ![](images/part2/part2-lb-lbr-create.png)
 
+* Creación de la regla
+  ![Captura de pantalla 2025-04-12 102734](https://github.com/user-attachments/assets/a11e86f4-46fd-48da-8b4e-a5e9f3622a52)
+
+
 5. Cree una *Virtual Network* dentro del grupo de recursos, guiese con la siguiente imágen.
 
 ![](images/part2/part2-vn-create.png)
+
+* Grupo de recursos nuevos
+  ![Captura de pantalla 2025-04-12 104226](https://github.com/user-attachments/assets/f8c1d1e5-43c3-4077-9a09-0e48edc8d941)
+
 
 #### Crear las maquinas virtuales (Nodos)
 
@@ -229,6 +252,9 @@ Ahora vamos a crear 3 VMs (VM1, VM2 y VM3) con direcciones IP públicas standar 
 1. En la configuración básica de la VM guíese por la siguiente imágen. Es importante que se fije en la "Avaiability Zone", donde la VM1 será 1, la VM2 será 2 y la VM3 será 3.
 
 ![](images/part2/part2-vm-create1.png)
+
+* Creación primera virtual Machine
+  ![Captura de pantalla 2025-04-12 104611](https://github.com/user-attachments/assets/78ae0aaa-fecb-4ec7-8180-905af6220138)
 
 2. En la configuración de networking, verifique que se ha seleccionado la *Virtual Network*  y la *Subnet* creadas anteriormente. Adicionalmente asigne una IP pública y no olvide habilitar la redundancia de zona.
 
