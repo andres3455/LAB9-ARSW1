@@ -192,7 +192,7 @@ A pesar del incremento gradual en el tiempo de ejecución, el comportamiento gen
 9. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
 * Respuesta: El precio aumenta considerablemente, y se le delegan mas ram para los procesos
 12. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
-  En los tiempos de respuesta, se alcanzo una reducción de aproximadamente un segundo, mientras que el consumo de CPU, aumento de una 30% a un 40 %
+* Respuesta: En los tiempos de respuesta, se alcanzo una reducción de aproximadamente un segundo, mientras que el consumo de CPU, aumento de una 30% a un 40 %
 13. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
   ## GUERRA
 
