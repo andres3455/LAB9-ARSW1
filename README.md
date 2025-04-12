@@ -160,6 +160,17 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 3. ¿Al cerrar la conexión ssh con la VM, por qué se cae la aplicación que ejecutamos con el comando `npm FibonacciApp.js`? ¿Por qué debemos crear un *Inbound port rule* antes de acceder al servicio?
 * Cuando cerramos la terminal o nos desconectamos del SSH), todos los procesos ligados al acceso Node.js se terminan. Debemos crear una regla de entrada, por que por defecto azure bloquea las peticiones entrantes a menos que se lo permitamos
 4. Adjunte tabla de tiempos e interprete por qué la función tarda tando tiempo.
+  Valor calculado (n)	Tiempo de ejecución (segundos)
+1,000,000	                        6.77
+1,010,000	                        6.90
+1,020,000	                        7.02
+1,030,000	7.12
+1,040,000	7.28
+1,050,000	7.38
+1,060,000	7.73
+1,070,000	12.48
+1,080,000	9.94
+1,090,000	8.07
 
 5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
 * ![Screenshot 2025-04-10 085320](https://github.com/user-attachments/assets/d4ba6889-08bb-4dc2-a582-1b47599f0c7e)
