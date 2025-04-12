@@ -138,8 +138,9 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 ![Imágen 3](images/part1/part1-vm-resize.png)
 
-* Cambio de tamaño
-  ![Captura de pantalla 2025-04-12 085756](https://github.com/userattachments/assets/6969005d-c7f9-4f41-ada9-8ed159233554)
+* Cambio de tamaño:
+  ![Captura de pantalla 2025-04-12 085756](https://github.com/user-attachments/assets/4af010d9-df60-46c3-9a91-c58b63b4e04b)
+
 
 
 11. Una vez el cambio se vea reflejado, repita el paso 7, 8 y 9.
