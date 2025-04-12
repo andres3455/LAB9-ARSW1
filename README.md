@@ -160,17 +160,18 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 3. ¿Al cerrar la conexión ssh con la VM, por qué se cae la aplicación que ejecutamos con el comando `npm FibonacciApp.js`? ¿Por qué debemos crear un *Inbound port rule* antes de acceder al servicio?
 * Cuando cerramos la terminal o nos desconectamos del SSH), todos los procesos ligados al acceso Node.js se terminan. Debemos crear una regla de entrada, por que por defecto azure bloquea las peticiones entrantes a menos que se lo permitamos
 4. Adjunte tabla de tiempos e interprete por qué la función tarda tando tiempo.
-* ![Screenshot 2025-04-10 085320](https://github.com/user-attachments/assets/d4ba6889-08bb-4dc2-a582-1b47599f0c7e)
 
-6. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
-7. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
+5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
+* ![Screenshot 2025-04-10 085320](https://github.com/user-attachments/assets/d4ba6889-08bb-4dc2-a582-1b47599f0c7e)
+  
+8. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
     * Tiempos de ejecución de cada petición.
     * Si hubo fallos documentelos y explique.
-8. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
-9. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
-10. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
-11. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
-12. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
+9. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
+10. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
+11. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
+12. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
+13. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
 
 ### Parte 2 - Escalabilidad horizontal
 
