@@ -307,15 +307,102 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALANCING_AZURE].postman_environment.json -n 10
 ```
 
-**Preguntas**
+# Preguntas 
 
-* ¿Cuáles son los tipos de balanceadores de carga en Azure y en qué se diferencian?, ¿Qué es SKU, qué tipos hay y en qué se diferencian?, ¿Por qué el balanceador de carga necesita una IP pública?
-* ¿Cuál es el propósito del *Backend Pool*?
-* ¿Cuál es el propósito del *Health Probe*?
-* ¿Cuál es el propósito de la *Load Balancing Rule*? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
-* ¿Qué es una *Virtual Network*? ¿Qué es una *Subnet*? ¿Para qué sirven los *address space* y *address range*?
-* ¿Qué son las *Availability Zone* y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea *zone-redundant*?
-* ¿Cuál es el propósito del *Network Security Group*?
+## ¿Cuáles son los tipos de balanceadores de carga en Azure y en qué se diferencian?
+
+Azure ofrece dos tipos principales de balanceadores de carga:
+
+- **Azure Load Balancer (L4 - capa de transporte)**  
+  Opera en la capa de red (TCP/UDP), distribuyendo tráfico entrante según algoritmos de balanceo (p. ej., hash de IP y puerto).  
+  - Ideal para tráfico interno o externo no basado en HTTP/HTTPS.
+  - No realiza inspección de contenido.
+
+- **Application Gateway (L7 - capa de aplicación)**  
+  Opera en la capa de aplicación (HTTP/HTTPS).  
+  - Realiza balanceo con base en URL, encabezados o cookies.
+  - Soporta SSL offloading, Web Application Firewall (WAF) y redirecciones HTTP.
+  - Ideal para aplicaciones web.
+
+## ¿Qué es SKU, qué tipos hay y en qué se diferencian?
+
+**SKU (Stock Keeping Unit)** en Azure define las características técnicas y comerciales de un recurso, como su rendimiento, nivel de disponibilidad, soporte y precio.
+
+En el caso del Azure Load Balancer, hay dos tipos de SKU:
+
+- **Basic**  
+  - No soporta zonas de disponibilidad.
+  - IP pública no puede ser “zone-redundant”.
+  - Requiere menos configuración, pero tiene menos características.
+
+- **Standard**  
+  - Recomendado para producción.
+  - Soporta zonas de disponibilidad, alta escalabilidad y seguridad.
+  - Requiere configuración explícita (backend pool, NSG, etc.).
+
+## ¿Por qué el balanceador de carga necesita una IP pública?
+
+El balanceador de carga necesita una IP pública para recibir tráfico desde internet y redirigirlo a instancias backend. Esta IP es el punto de entrada para los clientes externos.
+
+
+## ¿Cuál es el propósito del *Backend Pool*?
+
+El **Backend Pool** define los recursos (máquinas virtuales, instancias de escala, NICs, etc.) que recibirán el tráfico distribuido por el balanceador. Es donde el tráfico es finalmente procesado.
+
+
+
+## ¿Cuál es el propósito del *Health Probe*?
+
+El **Health Probe** monitorea la salud de las instancias del *backend pool*. Solo envía tráfico a instancias que respondan correctamente, garantizando alta disponibilidad y evitando enrutar a recursos caídos.
+
+
+
+## ¿Cuál es el propósito de la *Load Balancing Rule*?
+
+La **Load Balancing Rule** asocia una IP pública/puerto del balanceador con un puerto de backend. Define cómo se distribuye el tráfico.
+
+### Tipos de sesión persistente (Affinity):
+- **None**: No se garantiza que el tráfico de un cliente vaya a la misma instancia.
+- **Client IP**: El tráfico del mismo cliente siempre va a la misma instancia.
+- **Client IP and protocol**: Igual al anterior, pero también considera el protocolo.
+
+**Importancia**:  
+- Permite mantener estado de sesión (útil en apps sin persistencia central).
+- **Impacto en escalabilidad**: Alta persistencia reduce la distribución de carga efectiva, impactando negativamente en la escalabilidad.
+
+
+
+## ¿Qué es una *Virtual Network*? ¿Qué es una *Subnet*?
+
+- **Virtual Network (VNet)**: Red lógica aislada en Azure, equivalente a una red física en una infraestructura tradicional.
+- **Subnet**: Segmento de una VNet. Se utiliza para dividir recursos por funciones (por ejemplo, frontend/backend).
+
+### ¿Para qué sirven *address space* y *address range*?
+- **Address space**: Rango completo de direcciones IP (CIDR) asignado a la VNet.
+- **Address range**: Subconjunto asignado a una subnet específica dentro de una VNet.
+
+
+
+## ¿Qué son las *Availability Zones* y por qué seleccionamos 3 diferentes zonas?
+
+
+- **Availability Zones**: Ubicaciones físicas separadas dentro de una región de Azure, cada una con alimentación, red y refrigeración independientes.
+
+**Usar 3 zonas**:
+- Aumenta la resiliencia.
+- Garantiza alta disponibilidad incluso si una zona falla.
+- Mejora el SLA (hasta 99.99%).
+
+### ¿Qué significa que una IP sea *zone-redundant*?
+
+Una IP **zone-redundant** está disponible desde múltiples zonas. Permite que el tráfico se enrute automáticamente a instancias saludables en cualquier zona sin interrupción.
+
+
+## ¿Cuál es el propósito del *Network Security Group*?
+
+El **Network Security Group (NSG)** filtra tráfico de red entrante y saliente para recursos de Azure en una VNet. Es un firewall de nivel de red que define reglas para permitir o denegar tráfico basado en IP, puerto y protocolo.
+
+
 * Informe de newman 1 (Punto 2)
 * Presente el Diagrama de Despliegue de la solución.
 
